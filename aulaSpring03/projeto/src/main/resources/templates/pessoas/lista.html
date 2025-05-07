@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thmeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pessoas</title>
+</head>
+<body>
+    <h1>Lista de Pessoas</h1>
+    
+    <a href="@{pessoas/cadastrar}">Cadastrar Nova Pessoa</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="pessoa: ${listar}">
+                <td th:text="${pessoa.id}>"</td>
+                <td th:text="${pessoa.nome}"></td>
+                <td th:text="${pessoa.idade}"></td>
+                <td> 
+                    <a href=th:href"@{/pessoas/{id}(id=$(pessoa.id))}">Detalhes</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
